@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <symbol name="EXISTANCE_STEAM_VR"   comment="StemVRアセットが存在する場合にのみ有効" />
+</root>

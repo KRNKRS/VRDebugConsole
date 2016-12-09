@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: VRLogWindowParamator
+  m_EditorClassIdentifier: Assembly-CSharp:VRDebug:VRLogWindowParamator
+  isBillboard: 1
+  isFollorw: 1
+  localPosition: {x: 0, y: 0, z: 2}
+  localEulerAngles: {x: 0, y: 0, z: 0}
+  worldPosition: {x: 0, y: 0, z: 2}
+  worldEulerAngle: {x: 0, y: 0, z: 0}
+  sizeDelta: {x: 2, y: 1.5}
