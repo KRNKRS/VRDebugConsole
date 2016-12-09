@@ -26,7 +26,7 @@ Complete</li>
 <br>
 好みのサイズと位置に調整して使用できます。<br>
 You can adjust it to your preferred size and position.
-![Resize and Billboard](https://cloud.githubusercontent.com/assets/3947216/21043606/02cb9222-be3b-11e6-9898-3014e3e5bdf6.gif "Resize and Billboard")
+![Resize and Billboard](https://cloud.githubusercontent.com/assets/3947216/21043606/02cb9222-be3b-11e6-9898-3014e3e5bdf6.gif "Resize and Billboard")<br>
 <br>
 HTC Viveを使用している場合は、EventSystemにアタッチされている「VRDebugInputModule」にVRDebugWindowの操作を行いたいコントローラを指定することで実行中にトリガーを引くことで操作を行うことが出来ます。<br>
 If you are using HTC Vive, you can operate by pulling a trigger during execution by attach the controller you want to operate VRDebugWindow in "VRDebugInputModule" attached to EventSystem.
