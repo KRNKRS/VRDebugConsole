@@ -17,12 +17,18 @@ For the current function, please refer to the following.<br>
 </ul>
 ## 使い方<br>How to
 <ol>
-<li>インスペクターもしくはシーンビューにVRDebugプレハブをD&Dします<br>D&D "VRDebug" prefab to inspector or scene view</li>
-<li>終わり<br>Complete</li>
+<li>インスペクターもしくはシーンビューにVRDebugプレハブをD&Dします<br>
+D&D "VRDebug" prefab to inspector or scene view</li>
+<li>終わり<br>
+Complete</li>
 </ol>
 ![sanmple4](https://cloud.githubusercontent.com/assets/3947216/21044584/0efda7ec-be40-11e6-889f-87ba8f4e2ae2.gif)<br>
 <br>
 好みのサイズと位置に調整して使用できます。<br>
 You can adjust it to your preferred size and position.
 ![Resize and Billboard](https://cloud.githubusercontent.com/assets/3947216/21043606/02cb9222-be3b-11e6-9898-3014e3e5bdf6.gif "Resize and Billboard")
+<br>
+HTC Viveを使用している場合は、EventSystemにアタッチされている「VRDebugInputModule」にVRDebugWindowの操作を行いたいコントローラを指定することで実行中にトリガーを引くことで操作を行うことが出来ます。<br>
+If you are using HTC Vive, you can operate by pulling a trigger during execution by attach the controller you want to operate VRDebugWindow in "VRDebugInputModule" attached to EventSystem.
+
 ![sample](https://cloud.githubusercontent.com/assets/3947216/21043849/4c8f64aa-be3c-11e6-80cf-610affdd40bf.gif)
