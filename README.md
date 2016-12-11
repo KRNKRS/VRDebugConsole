@@ -1,4 +1,4 @@
-# VRDebugLog
+# VRDebugConsole
 これはVR開発上でデバッグの補助を行うアセットで、3D空間上にデバッグログの情報を表示します。<br>
 現在、実装されている機能は以下。<br>
 This asset is support to development that VR applications.<br>
@@ -28,7 +28,7 @@ Complete</li>
 You can adjust it to your preferred size and position.
 ![Resize and Billboard](https://cloud.githubusercontent.com/assets/3947216/21043606/02cb9222-be3b-11e6-9898-3014e3e5bdf6.gif "Resize and Billboard")<br>
 <br>
-HTC Viveを使用している場合は、EventSystemにアタッチされている「VRDebugInputModule」にVRDebugWindowの操作を行いたいコントローラを指定することで実行中にトリガーを引くことで操作を行うことが出来ます。<br>
+HTC Viveを使用している場合は、EventSystemにアタッチされている「VRDebugInputModule」にコントローラを指定し、Unity再生中にトリガーを引くことで操作を行うことが出来ます。<br>
 If you are using HTC Vive, you can operate by pulling a trigger during execution by attach the controller you want to operate VRDebugWindow in "VRDebugInputModule" attached to EventSystem.
 ![Vive Controller Attach](https://cloud.githubusercontent.com/assets/3947216/21046523/75b92c88-be48-11e6-9bcc-a76f8e0ed32c.gif "Vive Controller Attach")
 ![Vive operate](https://cloud.githubusercontent.com/assets/3947216/21043849/4c8f64aa-be3c-11e6-80cf-610affdd40bf.gif "Vive operate")
