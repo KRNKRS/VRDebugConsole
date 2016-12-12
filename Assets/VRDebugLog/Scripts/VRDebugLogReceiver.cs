@@ -31,7 +31,7 @@ namespace VRDebug
             {
                 var nowSymbols = PlayerSettings.GetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup);
                 var addSymbol = "EXSISTENCE_STEAM_VR";
-                if(nowSymbols.IndexOf(addSymbol) < 0)
+                if (nowSymbols.IndexOf(addSymbol) < 0)
                 {
                     addSymbol = ";" + addSymbol + ";";
                     var newSymbols = nowSymbols + addSymbol;
@@ -39,7 +39,7 @@ namespace VRDebug
                        EditorUserBuildSettings.selectedBuildTargetGroup,
                        newSymbols
                    );
-                   Debug.Log("Find asset \"SteamVR\".\nAdd DefineSymbols(Player Settings -> Other Settings -> Scripting Define Symbols).");
+                    Debug.Log("Find asset \"SteamVR\".\nAdd DefineSymbols(Player Settings -> Other Settings -> Scripting Define Symbols).");
                 }
             }
             //StandaloneInputModule:ON / VRDebugInputModule:OFF
@@ -88,19 +88,12 @@ namespace VRDebug
             }
             else
             {
-                var getComp = eventSystemObject.gameObject.GetComponent<VRDebugInputModule>();
-                if (getComp == null)
-                {
-                    eventSystemObject.gameObject.AddComponent<VRDebugInputModule>();
-                }
+                var eventObj = eventSystemObject.gameObject;
+                var comp = eventObj.GetComponent<VRDebugInputModule>() ?? eventObj.AddComponent<VRDebugInputModule>();
             }
             if (vrLogWindow == null)
             {
-                var obj = GameObject.Find("VRLogWindow");
-                if (obj == null)
-                {
-                    obj = GameObject.Find("VRLogWindow(Clone)");
-                }
+                var obj = FindObjectOfType<VRLogWindow>();
                 if (obj == null)
                 {
                     vrLogWindow = Resources.Load("VRLogWindow") as GameObject;
@@ -109,13 +102,10 @@ namespace VRDebug
                 }
                 else
                 {
-                    vrLogWindow = obj;
+                    vrLogWindow = obj.gameObject;
                 }
             }
-            if(scrollView == null)
-            {
-                scrollView = vrLogWindow.transform.FindChild("MainWindow/ScrollView").GetComponent<VRDebugScrollView>();
-            }
+            scrollView = scrollView ?? vrLogWindow.transform.FindChild("MainWindow/ScrollView").GetComponent<VRDebugScrollView>();
         }
 
         /// <summary>
