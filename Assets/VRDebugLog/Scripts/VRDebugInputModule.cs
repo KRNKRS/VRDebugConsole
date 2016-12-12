@@ -112,37 +112,19 @@ namespace VRDebug
         /// </summary>
         private void ResourceCheck()
         {
-            if(pointerResource == null)
-            {
-                pointerResource = Resources.Load("Pointer") as GameObject;
-            }
-            if (pointer == null)
-            {
-                pointer = (GameObject)Instantiate(pointerResource);
-            }
-            if (material == null)
-            {
-                material = Resources.Load("Line") as Material;
-            }
+            pointerResource = pointerResource ?? Resources.Load("Pointer") as GameObject;
+            pointer = pointer ?? (GameObject)Instantiate(pointerResource);
+            material = material ?? Resources.Load("Line") as Material;
             if (lineRenderer == null)
             {
-                var comp = controllerObject.GetComponent<LineRenderer>();
-                lineRenderer = comp == null ? controllerObject.gameObject.AddComponent<LineRenderer>() : comp;
+                lineRenderer = controllerObject.GetComponent<LineRenderer>();
+                lineRenderer = lineRenderer ?? controllerObject.gameObject.AddComponent<LineRenderer>();
                 lineRenderer.widthMultiplier = 0.01f;
                 lineRenderer.material = material;
             }
-            if(inputAdapter == null)
-            {
-                var adap = this.gameObject.GetComponent<VRDebugInputAdapter>();
-                if(adap != null)
-                {
-                    inputAdapter = adap;
-                }
-                else
-                {
-                    inputAdapter = this.gameObject.AddComponent<VRDebugInputAdapter>();
-                }
-            }
+
+            inputAdapter = inputAdapter ?? this.gameObject.GetComponent<VRDebugInputAdapter>();
+            inputAdapter = inputAdapter ?? this.gameObject.AddComponent<VRDebugInputAdapter>();
         }
 
         /// <summary>
