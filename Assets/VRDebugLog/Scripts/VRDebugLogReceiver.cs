@@ -17,7 +17,7 @@ namespace VRDebug
     {
         private GameObject vrLogWindow;
         private VRDebugScrollView scrollView;
-        public int maxLog = 50;
+        private VRDebugLogSetting setting;
         private EventSystem eventSystemObject;
         private BaseInputModule inputModule;
         private VRDebugInputModule debugInputModule;
@@ -72,7 +72,7 @@ namespace VRDebug
 #if UNITY_EDITOR
             if (EditorApplication.isPlaying)
             {
-                scrollView.maxLog = maxLog;
+                scrollView.maxLog = setting.GetMaxLog;
                 scrollView.AddItem(_log, _stackTrace, _type);
             }
 #endif
@@ -106,6 +106,7 @@ namespace VRDebug
                 }
             }
             scrollView = scrollView ?? vrLogWindow.transform.FindChild("MainWindow/ScrollView").GetComponent<VRDebugScrollView>();
+            setting = setting ?? this.GetComponent<VRDebugLogSetting>();
         }
 
         /// <summary>

@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000013663733086}
   - component: {fileID: 114000011919961716}
+  - component: {fileID: 114901307936864664}
   m_Layer: 0
   m_Name: VRDebug
   m_TagString: Untagged
@@ -52,3 +53,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLog: 50
+--- !u!114 &114901307936864664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012693319344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84841c38abd6671478f106796ff505a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

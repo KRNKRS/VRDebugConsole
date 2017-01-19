@@ -13,19 +13,19 @@ namespace VRDebug
     public class VRLogWindow : MonoBehaviour
     {
 #if UNITY_EDITOR
-        [SerializeField]
+        [SerializeField, HideInInspector]
         private bool isBillboard = true;
-        [SerializeField]
+        [SerializeField, HideInInspector]
         private bool isFollorw = false;
-        [SerializeField]
+        [SerializeField, HideInInspector]
         private Vector3 localPosition;
-        [SerializeField]
+        [SerializeField, HideInInspector]
         private Vector3 localEulerAngles;
-        [SerializeField]
+        [SerializeField, HideInInspector]
         private Vector3 worldPosition;
-        [SerializeField]
+        [SerializeField, HideInInspector]
         private Vector3 worldEulerAngle;
-        [SerializeField]
+        [SerializeField, HideInInspector]
         private Vector2 sizeDelta;
         private VRLogWindowParamator windowData;
         private RectTransform rectTransform;
