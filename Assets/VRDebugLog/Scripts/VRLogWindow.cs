@@ -14,7 +14,7 @@ namespace VRDebug
     {
 #if UNITY_EDITOR
 
-        private VRDebugLogSetting setting;
+        private VRDebugSetting setting;
         [SerializeField, HideInInspector]
         private Vector3 localPosition;
         [SerializeField, HideInInspector]
@@ -71,13 +71,16 @@ namespace VRDebug
         {
             if (windowData != null)
             {
-                setting = setting ?? GameObject.Find("VRDebug").GetComponent<VRDebugLogSetting>();
+                setting = setting ?? GameObject.Find("VRDebug").GetComponent<VRDebugSetting>();
                 if (EditorApplication.isPlaying)
                 {
                     //Bind
                     if(setting.GetIsBind)
                     {
-                        this.transform.SetParent(Camera.main.transform);
+                        if(!setting.SetGetIsGrab)
+                        {
+                            this.transform.SetParent(Camera.main.transform);
+                        }
                     }
                     else
                     {

@@ -12,6 +12,7 @@ namespace VRDebug
     [RequireComponent(typeof(VRDebugInputAdapter))]
     public class VRDebugInputModule : BaseInputModule
     {
+        private VRDebugSetting setting;
         public GameObject controllerObject;
 
         private GameObject pointerResource;
@@ -25,7 +26,8 @@ namespace VRDebug
         /// </summary>
         public override void Process()
         {
-            if(controllerObject == null)
+            setting = setting ?? GameObject.Find("VRDebug").GetComponent<VRDebugSetting>();
+            if (setting.GetOparateController == null)
             {
                 return;
             }
