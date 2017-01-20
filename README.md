@@ -32,3 +32,7 @@ HTC Viveを使用している場合は、EventSystemにアタッチされてい�
 If you are using HTC Vive, you can operate by pulling a trigger during execution by attach the controller you want to operate VRDebugWindow in "VRDebugInputModule" attached to EventSystem.
 ![Vive Controller Attach](https://cloud.githubusercontent.com/assets/3947216/21046523/75b92c88-be48-11e6-9bcc-a76f8e0ed32c.gif "Vive Controller Attach")
 ![Vive operate](https://cloud.githubusercontent.com/assets/3947216/21043849/4c8f64aa-be3c-11e6-80cf-610affdd40bf.gif "Vive operate")
+
+## クリック(or Viveコントーラによる操作)しても反応ないんだけど！<br>
+「EventSystem」のInputModuleがどちらも有効になっていると正常なクリックなどの操作を判断してくれなくなります。<br>
+Viveによる操作をしたいならば「Standard Inpu Module」を、マウス等による操作をしたいならば「VR Debug Input Module」を非有効化にしてください。<br>
