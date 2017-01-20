@@ -13,10 +13,8 @@ namespace VRDebug
     public class VRLogWindow : MonoBehaviour
     {
 #if UNITY_EDITOR
-        [SerializeField, HideInInspector]
-        private bool isBillboard = true;
-        [SerializeField, HideInInspector]
-        private bool isFollorw = false;
+
+        private VRDebugLogSetting setting;
         [SerializeField, HideInInspector]
         private Vector3 localPosition;
         [SerializeField, HideInInspector]
@@ -30,6 +28,9 @@ namespace VRDebug
         private VRLogWindowParamator windowData;
         private RectTransform rectTransform;
         private BoxCollider boxCollider;
+        private Vector3 toCameraPosOffset;
+        private Vector3 toWindowVec;
+        private Vector3 initCamForward;
 
         void Awake()
         {
@@ -49,33 +50,20 @@ namespace VRDebug
         {
             if (windowData == null)
             {
-                isBillboard = true;
-                isFollorw = true;
                 localEulerAngles = Vector3.zero;
                 //Debug.LogError("WindowData is NULL");
                 return;
             }
-            isBillboard = windowData.isBillboard;
-            isFollorw = windowData.isFollorw;
             localPosition = windowData.localPosition;
             localEulerAngles = windowData.localEulerAngles;
             worldPosition = windowData.worldPosition;
             worldEulerAngle = windowData.worldEulerAngle;
             sizeDelta = windowData.sizeDelta;
-            if (isFollorw)
-            {
-                this.transform.SetParent(Camera.main.transform);
-                this.transform.localPosition = localPosition;
-                this.transform.localEulerAngles = localEulerAngles;
-            }
-            else
-            {
-                this.transform.SetParent(null);
-                this.transform.position = worldPosition;
-                this.transform.eulerAngles = worldEulerAngle;
-            }
             rectTransform.sizeDelta = sizeDelta;
             boxCollider.size = new Vector3(rectTransform.sizeDelta.x, rectTransform.sizeDelta.y, 0);
+            toCameraPosOffset = Camera.main.transform.position - this.transform.position;
+            initCamForward = Camera.main.transform.TransformDirection(Vector3.forward);
+            toWindowVec = this.transform.position - Camera.main.transform.position;
         }
 
         // Update is called once per frame
@@ -83,16 +71,21 @@ namespace VRDebug
         {
             if (windowData != null)
             {
-                if (isFollorw)
+                setting = setting ?? GameObject.Find("VRDebug").GetComponent<VRDebugLogSetting>();
+                if (EditorApplication.isPlaying)
                 {
-                    this.transform.SetParent(Camera.main.transform);
-                }
-                else
-                {
-                    this.transform.SetParent(null);
+                    //Bind
+                    if(setting.GetIsBind)
+                    {
+                        this.transform.SetParent(Camera.main.transform);
+                    }
+                    else
+                    {
+                        this.transform.SetParent(null);
+                    }
                 }
 
-                if (isBillboard)
+                if (setting.GetIsBillboard)
                 {
                     var vec = this.transform.position - Camera.main.transform.position;
                     this.transform.rotation = Quaternion.LookRotation(vec);
@@ -112,8 +105,6 @@ namespace VRDebug
                 sizeDelta = rectTransform.sizeDelta;
                 //Debug.Log(sizeDelta);
 
-                windowData.isBillboard = isBillboard;
-                windowData.isFollorw = isFollorw;
                 windowData.localPosition = localPosition;
                 windowData.localEulerAngles = localEulerAngles;
                 windowData.worldPosition = worldPosition;

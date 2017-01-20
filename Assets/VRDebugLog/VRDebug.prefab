@@ -52,7 +52,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edce060198952a74499f4da71ac91706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLog: 50
 --- !u!114 &114901307936864664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -64,3 +63,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84841c38abd6671478f106796ff505a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLog: 50
+  isBillboard: 1
+  isBind: 1
