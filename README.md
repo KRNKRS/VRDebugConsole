@@ -5,7 +5,7 @@ This asset is support to development that VR applications.<br>
 VRDebugLog display in 3d space that information of DebugLog function.<br>
 For the current function, please refer to the following.<br>
 
-## Ver.0.5 機能<br>Function
+## Ver.0.6 機能<br>Function
 <ul>
 <li>リサイズ<br>Resize</li>
 <li>ビルボード<br>Billborard</li>
