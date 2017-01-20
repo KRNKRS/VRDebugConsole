@@ -13,11 +13,11 @@ using VRDebug;
 namespace VRDebug
 {
     [ExecuteInEditMode]
-    public class VRDebugLogReceiver : MonoBehaviour
+    public class VRDebugReceiver : MonoBehaviour
     {
         private GameObject vrLogWindow;
         private VRDebugScrollView scrollView;
-        private VRDebugLogSetting setting;
+        private VRDebugSetting setting;
         private EventSystem eventSystemObject;
         private BaseInputModule inputModule;
         private VRDebugInputModule debugInputModule;
@@ -106,7 +106,7 @@ namespace VRDebug
                 }
             }
             scrollView = scrollView ?? vrLogWindow.transform.FindChild("MainWindow/ScrollView").GetComponent<VRDebugScrollView>();
-            setting = setting ?? this.GetComponent<VRDebugLogSetting>();
+            setting = setting ?? this.GetComponent<VRDebugSetting>();
         }
 
         /// <summary>
